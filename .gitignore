@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Sub-repos
+assignments/bayesian-1st-assignment/
+assignments/1st-assignment/
+
 # C extensions
 *.so
 

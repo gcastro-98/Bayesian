@@ -1,0 +1,24 @@
+- Open the Anaconda Prompt in **ADMIN mode**
+- Look up the executable of R:
+cd C:\Program Files\R\R-4.2.3\bin
+R
+- It is in this installation of R (and this way it should be accessed) in which we should install our packages (rather than with Rstudio). Let's install Stan's R API:
+remove.packages(c("rstan","StanHeaders"))
+if (file.exists(".RData")) file.remove(".RData")
+install.packages("StanHeaders", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))
+install.packages("rstan", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))
+# install.packages("rstan", repos = "https://cloud.r-project.org/", dependencies = TRUE)
+- We could verify the installation by typing ``example(stan_model, package = "rstan", run.dontrun = TRUE)`` or simply asking:
+library(rstan)
+- Finally, we will set the R installation as Jupyter's kernel and make it accessible system-wide by typing:
+IRkernel::installspec(user=FALSE)
+
+# R api for JAGS: installation
+- Make sure that JAGS is installed on your system. If you haven't installed JAGS yet, you can download it from the official website at: 
+https://sourceforge.net/projects/mcmc-jags/files/
+- Open R by typing C:\Program Files\R\R-4.2.3\bin\R and then type:
+install.packages("rjags")
+- Once "rjags" is installed, type the following command to install the "R2jags" package:
+install.packages("R2jags")
+- Verify the installation by loading the "R2jags" package:
+library(R2jags)
